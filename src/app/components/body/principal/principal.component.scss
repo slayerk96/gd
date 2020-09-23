@@ -1,0 +1,130 @@
+/*
+* Prefixed by https://autoprefixer.github.io
+* PostCSS: v7.0.29,
+* Autoprefixer: v9.7.6
+* Browsers: last 4 version
+*/
+
+.fondo {
+    background: url("/assets/delivery.png");
+    background-size: cover;
+}
+
+.boton {
+    will-change: transform;
+    -webkit-transform: perspective(300px) rotateX(0deg) rotateY(0deg);
+    transform: perspective(300px) rotateX(0deg) rotateY(0deg);
+    cursor: pointer;
+    background-color: #00b0f5 !important;
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 1px;
+    line-height: 1;
+    margin-left: 8px;
+    margin-right: 8px;
+    padding: 14px 28px;
+    border-radius: 25px;
+    border: none;
+    outline: none;
+    -webkit-transform-style: preserve-3d;
+    transform-style: preserve-3d;
+    -webkit-box-shadow: 0 8px 6px -6px rgba(0, 0, 0, .3);
+    box-shadow: 0 8px 6px -6px rgba(0, 0, 0, .3);
+}
+
+$text: #fff;
+$link: #ffffff;
+$link-hover: #d9b1ff;
+$background: #ffffff;
+canvas {
+    display: block;
+}
+
+#particles-js {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: $background
+}
+
+.text {
+    position: absolute;
+    top: 50%;
+    right: 50%;
+    -webkit-transform: translate(50%, -50%);
+    -ms-transform: translate(50%, -50%);
+    transform: translate(50%, -50%);
+    color: $text;
+    max-width: 90%;
+    padding: 2em 3em;
+    background: rgba(0, 0, 0, 0.4);
+    text-shadow: 0px 0px 2px #131415;
+    font-family: 'Open Sans', sans-serif;
+}
+
+h1 {
+    font-size: 2.25em;
+    font-weight: 700;
+    letter-spacing: -1px;
+}
+
+a,
+a:visited {
+    color: $link;
+    -webkit-transition: 0.25s;
+    -o-transition: 0.25s;
+    transition: 0.25s;
+}
+
+a:hover {
+    color: rgb(52, 122, 180);
+}
+
+a:focus {
+    color: $link-hover;
+}
+
+.esho {
+    margin-right: auto;
+    margin-top: 5px
+}
+
+@media screen and (max-width: 600px) {
+    .esho {
+        margin-left: 10px;
+        margin-top: 30px;
+    }
+    .mar {
+        margin-top: 50px;
+        margin-left: 0;
+        margin-right: 0;
+    }
+    .textc {
+        text-align: center;
+        margin: auto;
+    }
+    .hid {
+        display: none;
+    }
+    .cursi {
+        font-style: italic;
+        font-size: 16px !important;
+        color: #0000009c;
+    }
+}
+
+.sech {
+    width: 100%;
+    height: 80%;
+}
+
+.cursi {
+    font-size: 20px;
+}
+
+@media screen and (max-width: 600px) {
+    .sech {
+        width: 100%;
+        height: auto;
+    }
+}

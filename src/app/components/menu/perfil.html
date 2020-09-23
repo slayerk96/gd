@@ -1,0 +1,35 @@
+<div class="section">
+    <div *ngIf="!editar" class="container">
+        <div class="row">
+            <div class="col">
+                Nombre: {{gnombre}}
+            </div>
+
+        </div>
+        <div class="row">
+            <div class="col">
+                Telefono:{{gcelular}}
+            </div>
+        </div>
+    </div>
+    <div *ngIf="editar" class="container">
+        <div class="row">
+            <mat-form-field appearance="fill">
+                <mat-label>Nombre</mat-label>
+                <input (change)="setN($event)" matInput>
+            </mat-form-field>
+        </div>
+        <div class="row">
+            <mat-form-field appearance="fill">
+                <mat-label>Telefono</mat-label>
+                <input (change)="setT($event)" matInput>
+            </mat-form-field>
+        </div>
+    </div>
+    <div mat-dialog-actions align="end">
+        <button *ngIf="!editar" mat-button (click)="edit()">Editar</button>
+        <button mat-button [mat-dialog-close]="true" cdkFocusInitial>Volver</button>
+        <button *ngIf="editar" mat-button (click)="fireEditar()">Aceptar</button>
+
+    </div>
+</div>

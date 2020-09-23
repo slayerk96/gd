@@ -1,0 +1,21 @@
+<div class="fixed-top  backg">
+
+    <div class="container">
+        <div class="row">
+            <a class="glu" href="/">Real Chicken</a>
+
+            <button (click)="authService.GoogleAuth()" *ngIf="!isLogged" class="right" mat-button>Ingresar</button>
+            <button *ngIf="isLogged" class="right" mat-button [matMenuTriggerFor]="cuenta">Mi Cuenta</button>
+            <mat-menu #cuenta="matMenu" yPosition="above">
+                <button (click)="openDialog()" mat-menu-item>Perfil</button>
+                <button mat-menu-item (click)="openBottomSheet()">Mis Pedidos</button>
+                <button mat-menu-item routerLink="/admin">Admin</button>
+            </mat-menu>
+            <button *ngIf="isLogged" mat-button (click)="authService.SignOut()">Salir</button>
+        </div>
+
+    </div>
+</div>
+<div *ngIf="mybool" class="fab textcard example-button-container">
+    <button matBadge="{{this.items}}" (click)="openCvacio()" matBadgePosition="before" matBadgeColor="accent" mat-raised-button color="primary">Carrito(S/{{this.sumadecarrito.toFixed(2)}})</button>
+</div>

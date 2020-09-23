@@ -1,0 +1,155 @@
+<app-menu></app-menu>
+<div class="section">
+    <div class="container" style="margin-top: 60px;">
+        <div class="row" style="margin: 0;">
+            <div class="col" style="padding: 0;">
+                <button style="margin: auto; display: block;" matBadge="{{this.nPedidos}}" (click)="aPedidos()" matBadgePosition="before" matBadgeColor="accent" mat-raised-button color="primary">Nuevos Pedidos</button>
+
+            </div>
+            <div class="col" style="padding: 0;">
+                <button style="margin: auto; display: block;" matBadge="{{this.nPedidosr}}" (click)="aPedidos()" matBadgePosition="before" matBadgeColor="accent" mat-raised-button color="primary">Nuevas Reservas</button>
+            </div>
+        </div>
+
+    </div>
+</div>
+<mat-tab-group mat-stretch-tabs style="margin: auto; ">
+    <mat-tab label="Ahora">
+        <div class="container" *ngFor="let prod of fire.nAdmP" style="margin-bottom: 5px; max-width: 600px;">
+
+            <mat-accordion>
+                <mat-expansion-panel>
+                    <mat-expansion-panel-header>
+                        <mat-panel-title>
+                            <div *ngIf="!prod['data']['eListo']">
+                                {{prod['data']['proceso']}}
+                            </div>
+                            <div *ngIf="prod['data']['eListo']">
+                                Listo para Envio
+                            </div>
+                            <div style="margin: auto;">
+                                {{prod['data']['fechae']}}
+                            </div>
+                            <div style="margin-left: auto;">
+                                S/{{prod['data']['total'].toFixed(2)}}
+                            </div>
+                        </mat-panel-title>
+
+                    </mat-expansion-panel-header>
+                    <mat-form-field *ngIf="!prod['data']['eListo']" appearance="fill">
+                        <mat-label>Estado</mat-label>
+                        <mat-select value="{{prod['data']['proceso']}}" (selectionChange)="change($event,prod['id'])">
+                            <mat-option value="preparando">Preparando</mat-option>
+                            <mat-option value="listo">L. para envio</mat-option>
+                            <mat-option value="cancelado">Cancelado</mat-option>
+                            <mat-option value="enviado">Enviado</mat-option>
+                            <mat-option value="finalizado">Finalizado</mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                    <mat-form-field *ngIf="prod['data']['eListo']" appearance="fill">
+                        <mat-label>Estado</mat-label>
+                        <mat-select value='listo' (selectionChange)="change($event,prod['id'])">
+                            <mat-option value="preparando">Preparando</mat-option>
+                            <mat-option value="listo">L. para envio</mat-option>
+                            <mat-option value="cancelado">Cancelado</mat-option>
+                            <mat-option value="enviado">Enviado</mat-option>
+                            <mat-option value="finalizado">Finalizado</mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                    <div class="row" style="margin-left: 0; margin-right: 0;" *ngFor="let pr of prod['data']['pedido']">
+                        <div style="margin-top: 5px;">
+                            <span matBadge="{{pr['cantidad']}}" matBadgeOverlap="false">{{pr['nombre']}}
+                            </span>
+                        </div>
+                        <div style="margin-left: auto;margin-top: 5px;">
+                            {{pr['total'].toFixed(2)}}
+                        </div>
+
+                    </div>
+                    <hr class="rounded">
+
+                    <div>
+                        {{prod['data']['direccion']}}
+                    </div>
+                    <div>
+                        M. de pago: {{prod['data']['mpago']}}
+                    </div>
+                    <div *ngIf="prod['data']['notas']!=''">
+                        Notas: {{prod['data']['notas']}}
+                    </div>
+                </mat-expansion-panel>
+            </mat-accordion>
+
+        </div>
+    </mat-tab>
+    <mat-tab label="Reservas">
+        <div class="container" *ngFor="let prod of fire.nAdmPr" style="margin-bottom: 5px; max-width: 600px;">
+            <mat-accordion>
+                <mat-expansion-panel>
+                    <mat-expansion-panel-header>
+                        <mat-panel-title>
+                            <div *ngIf="!prod['data']['eListo']">
+                                {{prod['data']['proceso']}}
+                            </div>
+                            <div *ngIf="prod['data']['eListo']">
+                                Listo para Envio
+                            </div>
+                            <div style="margin: auto;">
+                                {{prod['data']['fechae']}}
+                            </div>
+                            <div style="margin-left: auto;">
+                                S/{{prod['data']['total'].toFixed(2)}}
+                            </div>
+                        </mat-panel-title>
+
+                    </mat-expansion-panel-header>
+                    <mat-form-field *ngIf="!prod['data']['eListo']" appearance="fill">
+                        <mat-label>Estado</mat-label>
+                        <mat-select value="{{prod['data']['proceso']}}" (selectionChange)="change($event,prod['id'])">
+                            <mat-option value="preparando">Preparando</mat-option>
+                            <mat-option value="listo">L. para envio</mat-option>
+                            <mat-option value="cancelado">Cancelado</mat-option>
+                            <mat-option value="enviado">Enviado</mat-option>
+                            <mat-option value="finalizado">Finalizado</mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                    <mat-form-field *ngIf="prod['data']['eListo']" appearance="fill">
+                        <mat-label>Estado</mat-label>
+                        <mat-select value='listo' (selectionChange)="change($event,prod['id'])">
+                            <mat-option value="preparando">Preparando</mat-option>
+                            <mat-option value="listo">L. para envio</mat-option>
+                            <mat-option value="cancelado">Cancelado</mat-option>
+                            <mat-option value="enviado">Enviado</mat-option>
+                            <mat-option value="finalizado">Finalizado</mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                    <div class="row" style="margin-left: 0; margin-right: 0;" *ngFor="let pr of prod['data']['pedido']">
+                        <div style="margin-top: 5px;">
+                            <span matBadge="{{pr['cantidad']}}" matBadgeOverlap="false">{{pr['nombre']}}
+                        </span>
+                        </div>
+                        <div style="margin-left: auto;margin-top: 5px;">
+                            {{pr['total'].toFixed(2)}}
+                        </div>
+
+                    </div>
+                    <hr class="rounded">
+
+                    <div>
+                        {{prod['data']['direccion']}}
+                    </div>
+                    <div>
+                        M. de pago: {{prod['data']['mpago']}}
+                    </div>
+                    <div *ngIf="prod['data']['notas']!=''">
+                        Notas: {{prod['data']['notas']}}
+                    </div>
+                </mat-expansion-panel>
+            </mat-accordion>
+
+        </div>
+    </mat-tab>
+    <mat-tab label="Reservas">
+
+    </mat-tab>
+</mat-tab-group>

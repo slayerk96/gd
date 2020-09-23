@@ -1,0 +1,101 @@
+<div id="carrito" *ngIf="this.fire.bandcarrito" class="section">
+    <div class="container">
+        <div class="row item-titulo">
+            <div class="item-titulo-p">Carrito</div>
+        </div>
+        <div class="row carda">
+            <div class="col-4" style="text-align: center; font-weight: bolder;">
+                Nombre
+            </div>
+            <div class="col-4" style="text-align: center;font-weight: bolder;">
+                Unidades
+            </div>
+            <div class="col-4" style="text-align: center;font-weight: bolder;">
+                Precio
+            </div>
+
+        </div>
+        <div class="carda">
+            <div class="row" *ngFor="let prod of productos">
+                <div class="col">
+                    {{prod.nombre}}
+                </div>
+                <div class="col">
+                    <div class="ese">
+                        {{prod.cantidad}}
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="ese">
+                        S/{{prod.total.toFixed(2)}}
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+        <div class="carda">
+            <div class="row">
+                <div class="col">Total</div>
+                <div class="col"></div>
+                <div class="col">S/{{this.fire.sumadecarrito.toFixed(2)}}</div>
+            </div>
+
+        </div>
+
+    </div>
+</div>
+<div *ngIf="this.fire.bandcarrito" class="container">
+    <div class="example-container">
+        <mat-form-field appearance="fill">
+            <mat-label>Dirección(Dentro A. de Reparto)</mat-label>
+            <input (change)="fDireccion($event)" matInput>
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+            <mat-label>Local</mat-label>
+            <mat-select (selectionChange)=fLocal($event)>
+                <mat-option value="Bosque">Urb. El bosque</mat-option>
+                <mat-option value="Granados">Urb. Los Granados</mat-option>
+                <mat-option value="Cedros">Urb. Los Cedros(Cerrado ahora)</mat-option>
+            </mat-select>
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+            <mat-label>M. de Pago(Contra Entrega)</mat-label>
+            <mat-select (selectionChange)=changeRatio($event)>
+                <mat-option value="tarjeta">Tarjeta - POS </mat-option>
+                <mat-option value="bcp">Transf. Bancaria bcp</mat-option>
+                <mat-option value="interbank">Transf. Bancaria interbank</mat-option>
+                <mat-option value="yape">YAPE</mat-option>
+                <mat-option value="plin">PLIN</mat-option>
+            </mat-select>
+        </mat-form-field>
+        <mat-form-field *ngIf='efectivo' appearance="fill">
+            <mat-label>Pago con: Ejem. S/100</mat-label>
+            <input (change)="fBillete($event)" matInput>
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+            <mat-label placeholder="987 654 321">Número de Contacto</mat-label>
+            <input (change)="fNum($event)" matInput>
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+            <mat-label>Hora de entrega</mat-label>
+            <mat-select (selectionChange)=fMetodo($event)>
+                <mat-option value="ahora">Lo mas pronto</mat-option>
+                <mat-option value="otro">Otro</mat-option>
+            </mat-select>
+        </mat-form-field>
+        <mat-form-field *ngIf='verfh' appearance="fill">
+            <mat-label>Fecha y Hora(10am-6pm)</mat-label>
+            <input placeholder="dd/mm hh:mm am/pm" (change)="fFh($event)" matInput>
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+            <mat-label>Notas(Opcional)</mat-label>
+            <input (change)="fNotas($event)" matInput>
+        </mat-form-field>
+        <button (click)="o()" style="width: 200px; margin: auto;background: #00c451;" matBadgePosition="before" matBadgeColor="accent" mat-raised-button color="primary">Realizar Pedido</button>
+    </div>
+
+</div>
+<div class="container ">
+    <iframe src="" width="100%" height="480"></iframe>
+</div>

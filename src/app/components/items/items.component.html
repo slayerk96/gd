@@ -1,0 +1,99 @@
+<div id="tienda" class="section">
+    <div class="container">
+        <div class="row item-titulo">
+            <div class="item-titulo-p">Principal</div>
+        </div>
+        <div class="row" style="display:flex;
+        justify-content:space-between;">
+            <div class="col-lg card" *ngFor="let prod of productos">
+                <div id="img" class="row card-top">
+                    <img class="img" src={{prod.data.img}} alt="" height="230">
+                </div>
+                <div id="nombre" class="row">
+                    <p class="nombre-bold">{{prod.data.nombre}} a la brasa</p>
+                </div>
+                <div id="descripcion" class="row">
+                    <p class="descripcion">{{prod.data.descripcion}}</p>
+                </div>
+                <div id="nombre" class="row">
+                    <p class="nombre-bold">+ {{prod.data.gratis}} GRATIS</p>
+                    <p class="nombre-bold">+ Delivery GRATIS</p>
+                </div>
+                <div class="row">
+                    <p class="precio-tachado">S/{{prod.data.precior}}</p>
+                </div>
+                <div class="row">
+                    <p class="precio">S/{{prod.data.precio}}</p>
+                </div>
+                <div *ngIf="!existe[prod.categoria]" class="row" id="botonadd">
+                    <button class="btn" (click)="anadirCarrito(prod.categoria)" mat-raised-button color="primary">Añadir al Carrito</button>
+                </div>
+                <div class="row" style="align-items: center;">
+                    <div *ngIf="existe[prod.categoria]" class="row" style="margin: auto;">
+                        <button class="btn" style="width: 60px;margin-top: 5px;" (click)="menos(prod.categoria)" mat-raised-button color="primary">-</button>
+                        <input class="card" value="{{value[prod.categoria]}}" style="margin-left: -5px; margin-right: -5px; width: 35px; height: 35px; text-align: center;" (change)="number($event,prod.categoria)" type="number" name="" id="{{prod.categoria}}">
+                        <button class="btn" style="width: 60px;margin-top: 5px;" (click)="anadirCarrito(prod.categoria)" mat-raised-button color="primary">+</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row item-titulo">
+            <div class="item-titulo-p">Agregados</div>
+        </div>
+        <div class="row">
+            <div class="col-lg-4 card" *ngFor="let prod of agregados">
+                <div id="img" class="row card-top">
+                    <img class="img" src={{prod.data.img}} alt="" height="230">
+                </div>
+                <div id="nombre" class="row">
+                    <p class="nombre-bold">{{prod.data.nombre}} a la brasa</p>
+                </div>
+                <div id="descripcion" class="row">
+                    <p class="descripcion">{{prod.data.descripcion}}</p>
+                </div>
+                <div class="row">
+                    <p class="precio">S/{{prod.data.precio}}</p>
+                </div>
+                <div *ngIf="!existe[prod.categoria]" class="row" id="botonadd">
+                    <button class="btn" (click)="anadirCarrito(prod.categoria)" mat-raised-button color="primary">Añadir al Carrito</button>
+                </div>
+                <div class="row" style="align-items: center;">
+                    <div *ngIf="existe[prod.categoria]" class="row" style="margin: auto;">
+                        <button class="btn" style="width: 60px;margin-top: 5px;" (click)="menos(prod.categoria)" mat-raised-button color="primary">-</button>
+                        <input class="card" value="{{value[prod.categoria]}}" style="margin-left: -5px; margin-right: -5px; width: 35px; height: 35px; text-align: center;" (change)="number($event,prod.categoria)" type="number" name="" id="{{prod.categoria}}">
+                        <button class="btn" style="width: 60px;margin-top: 5px;" (click)="anadirCarrito(prod.categoria)" mat-raised-button color="primary">+</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row item-titulo">
+            <div class="item-titulo-p">Bebidas</div>
+        </div>
+        <div class="row">
+            <div class="col-lg-4 card" *ngFor="let prod of bebidas">
+                <div id="img" class="row card-top">
+                    <img class="img" src={{prod.data.img}} alt="" height="230">
+                </div>
+                <div id="nombre" class="row">
+                    <p class="nombre-bold">{{prod.data.nombre}}</p>
+                </div>
+                <div id="descripcion" class="row">
+                    <p class="descripcion">{{prod.data.descripcion}}</p>
+                </div>
+                <div class="row">
+                    <p class="precio">S/{{prod.data.precio}}</p>
+                </div>
+                <div *ngIf="!existe[prod.categoria]" class="row" id="botonadd">
+                    <button class="btn" (click)="anadirCarrito(prod.categoria)" mat-raised-button color="primary">Añadir al Carrito</button>
+                </div>
+                <div class="row" style="align-items: center;">
+                    <div *ngIf="existe[prod.categoria]" class="row" style="margin: auto;">
+                        <button class="btn" style="width: 60px;margin-top: 5px;" (click)="menos(prod.categoria)" mat-raised-button color="primary">-</button>
+                        <input class="card" value="{{value[prod.categoria]}}" style="margin-left: -5px; margin-right: -5px; width: 35px; height: 35px; text-align: center;" (change)="number($event,prod.categoria)" type="number" name="" id="{{prod.categoria}}">
+                        <button class="btn" style="width: 60px;margin-top: 5px;" (click)="anadirCarrito(prod.categoria)" mat-raised-button color="primary">+</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

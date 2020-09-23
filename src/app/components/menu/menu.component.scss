@@ -1,0 +1,71 @@
+/*
+* Prefixed by https://autoprefixer.github.io
+* PostCSS: v7.0.29,
+* Autoprefixer: v9.7.6
+* Browsers: last 4 version
+*/
+
+.glu {
+    color: black;
+    font-size: 20px;
+    font-weight: 500;
+    margin-top: 6px;
+}
+
+.glu:hover {
+    text-decoration: none;
+}
+
+.backg {
+    background: white;
+}
+
+.right {
+    margin-left: auto;
+}
+
+.fab {
+    margin-top: 35px;
+    position: fixed;
+    left: calc(50% - 54px);
+    top: 0;
+    z-index: 9999;
+}
+
+@media screen and (min-width: 600px) {
+    .fab {
+        margin-top: 20px;
+        position: fixed;
+        left: calc(50% - 54px);
+        top: 0;
+        z-index: 9999;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .glu {
+        position: absolute;
+        right: 10px;
+    }
+    .right {
+        float: left;
+        margin-left: 0;
+    }
+}
+
+.textcard {
+    max-width: 86px;
+}
+
+.card {
+    -webkit-box-shadow: 0 2px 5px 0 rgba(0, 0, 0, .16), 0 2px 10px 0 rgba(0, 0, 0, .12);
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, .16), 0 2px 10px 0 rgba(0, 0, 0, .12);
+    border: 0;
+    font-weight: 400;
+    margin: 5px;
+}
+
+hr.rounded {
+    border-top: 1px solid #bbb;
+    border-radius: 5px;
+}
